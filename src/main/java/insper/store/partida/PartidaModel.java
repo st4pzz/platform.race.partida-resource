@@ -33,13 +33,13 @@ public class PartidaModel {
     private String time2;
 
 
-    @Column(name = "data")
+    @Column(name = "tx_data")
     private String data;
 
-    @Column(name = "local")
+    @Column(name = "tx_local")
     private String local;
 
-    @Column(name = "campeonato")
+    @Column(name = "tx_campeonato")
     private String campeonato;
 
 
