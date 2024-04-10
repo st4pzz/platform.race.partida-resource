@@ -1,1 +1,0 @@
-# platform.race.partida-resource
