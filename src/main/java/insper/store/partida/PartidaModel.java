@@ -33,15 +33,26 @@ public class PartidaModel {
     private String time2;
 
 
-    @Column(name = "id_jogador")
-    private String id_jogador;
+    @Column(name = "data")
+    private String data;
+
+    @Column(name = "local")
+    private String local;
+
+    @Column(name = "campeonato")
+    private String campeonato;
+
+
     
 
     public PartidaModel(Partida o) {
         this.id = o.id();
         this.time1 = o.time1();
         this.time2 = o.time2();
-        this.id_jogador = o.id_jogador();
+        this.data = o.data();
+        this.local = o.local();
+        this.campeonato = o.campeonato();
+        
     }
     
     public Partida to() {
@@ -49,7 +60,9 @@ public class PartidaModel {
             .id(id)
             .time1(time1)
             .time2(time2)
-            .id_jogador(id_jogador)
+            .data(data)
+            .local(local)
+            .campeonato(campeonato)
             .build();
     }
     

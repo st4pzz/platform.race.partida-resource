@@ -14,6 +14,8 @@ public class Partida {
     private String id;
     private String time1;
     private String time2;
-    private String id_jogador;
+    private String data;
+    private String local;
+    private String campeonato;
 
 }

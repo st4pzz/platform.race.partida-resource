@@ -19,18 +19,6 @@
 	<dependencies>
 
 
-		<dependency>
-			<groupId>insper.store</groupId>
-			<artifactId>jogador</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>insper.store</groupId>
-			<artifactId>account</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -6,7 +6,9 @@ public class PartidaParser {
         return Partida.builder()
             .time1(in.time1())
             .time2(in.time2())
-            .id_jogador(in.id_jogador())
+            .data(in.data())
+            .local(in.local())
+            .campeonato(in.campeonato())
             .build();
     }
 
@@ -15,7 +17,9 @@ public class PartidaParser {
             .id(Partida.id())
             .time1(Partida.time1())
             .time2(Partida.time2())
-            .id_jogador(Partida.id_jogador())
+            .data(Partida.data())
+            .local(Partida.local())
+            .campeonato(Partida.campeonato())
             .build();
     }
     
