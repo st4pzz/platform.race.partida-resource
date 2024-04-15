@@ -4,6 +4,7 @@ public class PartidaParser {
 
     public static Partida to(PartidaIn in) {
         return Partida.builder()
+            
             .time1(in.time1())
             .time2(in.time2())
             .data(in.data())

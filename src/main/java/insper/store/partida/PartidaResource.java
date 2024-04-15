@@ -50,13 +50,6 @@ public class PartidaResource implements PartidaController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/partidas/hello")
-
-    @Operation(summary = "Hello", description = "Hello")
-    public String hello() {
-        return "Hello from partida!";
-    }
-
     @Override
     @Operation(summary = "Create Partida", description = "Create Partida")
     public ResponseEntity<PartidaOut> create(PartidaIn in) {
