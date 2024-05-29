@@ -35,12 +35,27 @@ pipeline {
         }
         stage('Deploy on k8s') {
             steps {
-                withCredentials([ string(credentialsId: 'minikube_credentials', variable: 'api_token') ]) {
-                    sh 'kubectl --token $api_token --server https://host.docker.internal:61718  --insecure-skip-tls-verify=true apply -f ./k8s/deployment.yaml '
-                    sh 'kubectl --token $api_token --server https://host.docker.internal:61718  --insecure-skip-tls-verify=true apply -f ./k8s/service.yaml '
-                    sh 'kubectl --token $api_token --server https://host.docker.internal:61718 --insecure-skip-tls-verify=true apply -f ./k8s/configmap.yaml '
+                withCredentials([string(credentialsId: 'minikube_credentials', variable: 'api_token')]) {
+                    script {
+                        try {
+                            sh 'curl -k https://host.docker.internal:61718/healthz'
+                        } catch (Exception e) {
+                            error "Cannot connect to Kubernetes API server"
+                        }
+                        sh 'kubectl --token $api_token --server https://host.docker.internal:61718 --insecure-skip-tls-verify=true apply -f ./k8s/deployment.yaml --validate=false'
+                        sh 'kubectl --token $api_token --server https://host.docker.internal:61718 --insecure-skip-tls-verify=true apply -f ./k8s/service.yaml --validate=false'
+                        sh 'kubectl --token $api_token --server https://host.docker.internal:61718 --insecure-skip-tls-verify=true apply -f ./k8s/configmap.yaml --validate=false'
+                    }
                 }
             }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        failure {
+            echo 'Redis deployment failed.'
         }
     }
 }
