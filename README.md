@@ -18,20 +18,25 @@ A arquitetura do projeto utiliza uma abordagem de microserviços, onde cada comp
 ## Estrutura do Projeto
 
 ```
-platform.race.partida-resource/
+partida-resource/
+├── k8s/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           └── partidaresource/
-│   │   │               ├── controller/
-│   │   │               ├── model/
-│   │   │               ├── repository/
-│   │   │               └── service/
+│   │      └── insper/
+│   │          └── store/
+│   │              └── partida/
+│   │                  ├── Partida/
+│   │                  ├── PartidaApplication/
+│   │                  ├── PartidaModel/ 
+│   │                  ├── PartidaParser/
+│   │                  ├── PartidaRepository/
+│   │                  ├── PartidaResource/
+│   │                  └── PartidaService/
 │   └── resources/
+├── .gitignore
+├── Dockerfile
 ├── Jenkinsfile
-├── docker-compose.yml
 ├── README.md
 └── pom.xml
 ```
